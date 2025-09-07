@@ -1,0 +1,164 @@
+.cartPage {
+  max-width: 1024px;
+  margin: 48px auto;
+  padding: 40px;
+  background: var(--card-background);
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.heading {
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 2.6rem;
+  text-align: center;
+  color: var(--text-dark);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.heading::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background: var(--primary-color);
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 4px;
+}
+
+.cartTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+}
+
+.cartTableThead {
+  background-color: var(--extra-light);
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.cartTableTh,
+.cartTableTd {
+  padding: 20px 24px;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 12px;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.cartTableTr {
+  background-color: var(--card-background);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+[data-theme="dark"] .cartTableTr {
+  box-shadow: 0 4px 16px rgba(255,255,255,0.05);
+}
+
+.cartTableTrHover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] .cartTableTrHover:hover {
+  box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+}
+
+.price,
+.quantity,
+.total,
+.priceTh,
+.quantityTh,
+.totalTh {
+  text-align: center;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+.removeBtn {
+  background-color: #e76b6b;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.removeBtn:hover {
+  background-color: #c93d3d;
+  transform: scale(1.05);
+}
+
+.cartTableTfootTd {
+  padding: 20px 24px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-align: right;
+  color: var(--text-dark);
+  border-top: 2px solid var(--border-color);
+}
+
+.emptyMessage {
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--text-light);
+  margin-top: 40px;
+  font-weight: 600;
+  padding: 20px;
+  background: var(--extra-light);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .emptyMessage {
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cartPage {
+    margin: 24px 16px;
+    padding: 24px;
+  }
+  .cartTableThead {
+    display: none;
+  }
+  .cartTableTr {
+    display: block;
+    margin-bottom: 24px;
+    border-radius: 16px;
+  }
+  .cartTableTd {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 20px;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-dark);
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+  .cartTableTd::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-light);
+    flex-basis: 45%;
+  }
+  .cartTableTfootTd {
+    text-align: left;
+    font-size: 1.1rem;
+    padding: 16px;
+  }
+}
